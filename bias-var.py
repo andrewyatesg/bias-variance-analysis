@@ -23,18 +23,10 @@ class BiasVarDecomp():
         :param avgH: array of average hypothesis over all X
         :return:
         '''
-        biases = []
-        for i in range(0, len(self.x)):
-            biases.append((avgH[i] - self.target[i]) ** 2)
-
-        return np.average(biases)
+        return np.average([(avgH[i] - self.target[i]) ** 2 for i in range(0, len(self.x))])
 
     def var(self, hypoths):
-        vars = []
-        for i in range(0, len(self.x)):
-            vars.append(np.var(hypoths[i]))
-
-        return np.average(vars)
+        return np.average([np.var(hypoths[i]) for i in range(0, len(self.x))])
 
     def plot_target(self):
         self.ax.plot(self.x, self.target)
