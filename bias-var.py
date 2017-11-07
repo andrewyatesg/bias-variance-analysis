@@ -86,6 +86,7 @@ class BiasVarDecomp():
 
 biasvar = BiasVarDecomp(iters=50)
 biasvar.plot_simple()
+print()
 biasvar.plot_complex()
 
 plt.show()
